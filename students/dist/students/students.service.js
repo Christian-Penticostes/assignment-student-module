@@ -24,30 +24,6 @@ let StudentsService = class StudentsService {
     async create(createStudentDto) {
         return await this.studentRepository.save(createStudentDto);
     }
-    async findAll() {
-        return await this.studentRepository.find();
-    }
-    async findOne(id) {
-        const student = await this.studentRepository.findOneBy({ id });
-        if (!student) {
-            throw new common_1.NotFoundException('Student Not Found');
-        }
-        return student;
-    }
-    async update(id, updateStudentDto) {
-        const student = await this.studentRepository.findOneBy({ id });
-        if (!student) {
-            throw new common_1.NotFoundException('Student Not Found');
-        }
-        return await this.studentRepository.update(id, updateStudentDto);
-    }
-    async remove(id) {
-        const student = await this.studentRepository.findOneBy({ id });
-        if (!student) {
-            throw new common_1.NotFoundException('Student Not Found');
-        }
-        return await this.studentRepository.remove(student);
-    }
 };
 exports.StudentsService = StudentsService;
 exports.StudentsService = StudentsService = __decorate([
